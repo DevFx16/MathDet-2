@@ -26,7 +26,14 @@ export default class Menu extends React.Component {
                         <Col>
                             <Row></Row>
                             <Row>
-
+                                <Card>
+                                    <CardItem header bordered>
+                                        <Text>Vectores</Text>
+                                    </CardItem>
+                                    <CardItem cardBody>
+                                        <Image source={{ uri: 'https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2018/11/dragon-ball-super.png?resize=1080%2C600&quality=90&ssl=1' }} style={Style.Img} />
+                                    </CardItem>
+                                </Card>
                             </Row>
                             <Row></Row>
                         </Col>
