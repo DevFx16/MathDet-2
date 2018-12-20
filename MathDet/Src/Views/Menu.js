@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Content, Card, CardItem, Body } from 'native-base';
+import { Image } from 'react-native';
+import { Container, Content, Card, CardItem, Body, Text } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Style from '../Styles/MenuStyle';
 
@@ -7,35 +8,28 @@ export default class Menu extends React.Component {
     render() {
         return (
             <Container>
-                <Content padder>
+                <Content padder contentContainerStyle={Style.Grid}>
                     <Grid>
-                        <Col>
-                            <Row></Row>
-                            <Row>
-                                <Card>
-                                    <CardItem header bordered>
-                                        <Text>Matrices</Text>
-                                    </CardItem>
-                                    <CardItem cardBody>
-                                        <Image source={{ uri: 'https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2018/11/dragon-ball-super.png?resize=1080%2C600&quality=90&ssl=1' }} style={Style.Img} />
-                                    </CardItem>
-                                </Card>
-                            </Row>
-                            <Row></Row>
+                        <Col size={49} style={Style.Col}>
+                            <Card style={Style.Card}>
+                                <CardItem header bordered>
+                                    <Text>Matrices</Text>
+                                </CardItem>
+                                <CardItem cardBody>
+                                    <Image source={{ uri: '../../assets/matriz.png' }} style={Style.Img} />
+                                </CardItem>
+                            </Card>
                         </Col>
-                        <Col>
-                            <Row></Row>
-                            <Row>
-                                <Card>
-                                    <CardItem header bordered>
-                                        <Text>Vectores</Text>
-                                    </CardItem>
-                                    <CardItem cardBody>
-                                        <Image source={{ uri: 'https://i1.wp.com/codigoespagueti.com/wp-content/uploads/2018/11/dragon-ball-super.png?resize=1080%2C600&quality=90&ssl=1' }} style={Style.Img} />
-                                    </CardItem>
-                                </Card>
-                            </Row>
-                            <Row></Row>
+                        <Col size={2}></Col>
+                        <Col size={49} style={Style.Col}>
+                            <Card style={Style.Card}>
+                                <CardItem header bordered>
+                                    <Text>Vectores</Text>
+                                </CardItem>
+                                <CardItem cardBody>
+                                    <Image source={{ uri: '../../assets/vector.png' }} style={Style.Img} />
+                                </CardItem>
+                            </Card>
                         </Col>
                     </Grid>
                 </Content>

@@ -1,17 +1,15 @@
 import React from 'react';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Menu from './Src/Views/Menu';
-import { Container } from 'native-base'
+
 export default class App extends React.Component {
   render() {
     return (
-      <Container>
-        <Router />
-      </Container>
+      <Router />
     );
   }
 }
 
-const Router = createStackNavigator({
+const Router = createAppContainer(createStackNavigator({
   Menu: { screen: Menu, navigationOptions: () => ({ header: null }) }
-});
+}));
