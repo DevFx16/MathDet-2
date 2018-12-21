@@ -1,10 +1,15 @@
 import React from 'react';
 import { Image, Text } from 'react-native';
-import { Container, Content, Card, CardItem, Body } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
+import { Container, Content, Card, CardItem } from 'native-base';
+import { Row, Grid } from 'react-native-easy-grid';
 import Style from '../Styles/MenuStyle';
 
 export default class Menu extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <Container>
@@ -18,7 +23,7 @@ export default class Menu extends React.Component {
                                 <CardItem header bordered>
                                     <Text style={Style.Text}>Matrices</Text>
                                 </CardItem>
-                                <CardItem cardBody>
+                                <CardItem cardBody button onPress={() => this.props.navigation.navigate('Matriz')}>
                                     <Image source={require('../../assets/Images/matriz.png')} style={Style.Img} />
                                 </CardItem>
                             </Card>

@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     Img: {
-        height: 150,
+        height: 120,
         width: '100%',
         flex: 1,
         resizeMode: 'contain'
@@ -19,7 +19,7 @@ export default StyleSheet.create({
         justifyContent: 'center'
     },
     Text: {
-        fontFamily: 'bree',
+        fontFamily: 'Gloria',
         fontSize: 20,
         color: 'violet'
     }
