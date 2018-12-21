@@ -15,6 +15,11 @@
     "react-native-increibles-alertas": "^2.0.2",
     "react-navigation": "^3.0.8"
   },
+  "rnpm": {
+    "assets": [
+      "./assets/Fonts"
+    ]
+  },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"
   },
