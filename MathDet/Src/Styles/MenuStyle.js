@@ -2,13 +2,18 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     Img: {
-        height: 120,
+        height: 130,
         width: '100%',
         flex: 1,
         resizeMode: 'contain'
     },
     Card:{
         width: '75%',
+        flex: 0
+    },
+    CardCol:{
+        width: '100%',
+        height: '100%',
         flex: 0
     },
     Grid: {
@@ -22,5 +27,8 @@ export default StyleSheet.create({
         fontFamily: 'Gloria',
         fontSize: 20,
         color: 'violet'
+    },
+    TextSize: {
+        fontSize: 16
     }
 });
