@@ -3,6 +3,7 @@ import { Image, Text } from 'react-native';
 import { Container, Content, Card, CardItem } from 'native-base';
 import { Row, Grid, Col } from 'react-native-easy-grid';
 import Style from '../Styles/MenuStyle';
+import Publicidad from './Publicidad';
 
 export default class Menu extends React.Component {
 
@@ -54,6 +55,7 @@ export default class Menu extends React.Component {
                         </Row>
                     </Grid>
                 </Content>
+                <Publicidad />
             </Container>
         );
     }

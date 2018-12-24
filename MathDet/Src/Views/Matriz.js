@@ -15,48 +15,37 @@ export default class Matriz extends React.Component {
                             <Text style={Style.Text}>Selección de Ítem</Text>
                         </Row>
                         <Row size={42} style={Style.Col}>
-                            <Col size={49} style={Style.Col}>
-                                <Card>
+                            <Col size={100} style={Style.Col}>
+                                <Card style={Style.Card}>
                                     <CardItem header bordered>
+                                        <Left>
+                                            <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
+                                        </Left>
                                         <Text style={[Style.Text, Style.TextSize]}>Operaciones</Text>
                                     </CardItem>
-                                    <CardItem cardBody style={Style.Col}>
-                                        <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
-                                    </CardItem>
                                 </Card>
-                            </Col>
-                            <Col size={2}></Col>
-                            <Col size={49} style={Style.Col}>
-                                <Card >
+                                <Card style={Style.Card}>
                                     <CardItem header bordered>
+                                        <Left>
+                                            <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
+                                        </Left>
                                         <Text style={[Style.Text, Style.TextSize]}>Determiante</Text>
                                     </CardItem>
-                                    <CardItem cardBody style={Style.Col}>
-                                        <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
-                                    </CardItem>
                                 </Card>
-                            </Col>
-                        </Row>
-                        <Row size={2}></Row>
-                        <Row size={42} style={Style.Col}>
-                            <Col size={49}>
-                                <Card >
+                                <Card style={Style.Card}>
                                     <CardItem header bordered>
+                                        <Left>
+                                            <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
+                                        </Left>
                                         <Text style={[Style.Text, Style.TextSize]}>Traspuesta</Text>
                                     </CardItem>
-                                    <CardItem cardBody style={Style.Col}>
-                                        <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
-                                    </CardItem>
                                 </Card>
-                            </Col>
-                            <Col size={2}></Col>
-                            <Col size={49}>
-                                <Card >
+                                <Card style={Style.Card}>
                                     <CardItem header bordered>
+                                        <Left>
+                                            <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
+                                        </Left>
                                         <Text style={[Style.Text, Style.TextSize]}>Inversa</Text>
-                                    </CardItem>
-                                    <CardItem cardBody style={Style.Col}>
-                                        <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
                                     </CardItem>
                                 </Card>
                             </Col>
