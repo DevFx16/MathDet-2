@@ -8,10 +8,10 @@ export default class Publicidad extends React.Component {
     }
 
     componentDidMount() {
-        AdMobInterstitial.setAdUnitID('ca-app-pub-9624629768425340/6694440480');
+     /*   AdMobInterstitial.setAdUnitID('ca-app-pub-9624629768425340/6694440480');
         AdMobInterstitial.requestAdAsync().then(json => {
             AdMobInterstitial.showAdAsync();
-        });
+        }); */
     }
 
     render() {

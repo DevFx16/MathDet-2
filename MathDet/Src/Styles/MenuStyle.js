@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     Img: {
-        height: 130,
+        height: 180,
         width: '100%',
         flex: 1,
         resizeMode: 'contain'
@@ -13,7 +13,6 @@ export default StyleSheet.create({
     },
     CardCol:{
         width: '100%',
-        height: '100%',
         flex: 0
     },
     Grid: {
@@ -23,12 +22,15 @@ export default StyleSheet.create({
     Col: {
         justifyContent: 'center'
     },
+    Flex:{
+      justifyContent: 'flex-start'  
+    },
+    Alto: {
+        justifyContent: 'space-between'
+    },
     Text: {
         fontFamily: 'Gloria',
         fontSize: 20,
         color: 'violet'
-    },
-    TextSize: {
-        fontSize: 16
     }
 });
