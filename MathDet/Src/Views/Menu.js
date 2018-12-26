@@ -17,9 +17,7 @@ export default class Menu extends React.Component {
                 <Content padder contentContainerStyle={Style.Grid}>
                     <Grid>
                         <Row size={10} style={Style.Col}>
-                            <Col style={[Style.Col, { flexDirection: 'row' }]}>
-                                <Text style={Style.Text}>Selección de Ítem</Text>
-                            </Col>
+                            <Text style={Style.Text}>Selección de Ítem</Text>
                         </Row>
                         <Row size={39}>
                             <Col size={49} style={Style.Col}>
