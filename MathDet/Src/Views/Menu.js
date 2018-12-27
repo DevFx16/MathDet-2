@@ -20,24 +20,13 @@ export default class Menu extends React.Component {
                             <Text style={Style.Text}>Selección de Ítem</Text>
                         </Row>
                         <Row size={39}>
-                            <Col size={49} style={Style.Col}>
+                            <Col style={Style.Col}>
                                 <Card style={Style.CardCol}>
                                     <CardItem header bordered>
                                         <Text style={Style.Text}>Matrices</Text>
                                     </CardItem>
                                     <CardItem cardBody button onPress={() => this.props.navigation.navigate('Matriz')}>
                                         <Image source={require('../../assets/Images/matriz.png')} style={Style.Img} />
-                                    </CardItem>
-                                </Card>
-                            </Col>
-                            <Col size={2}></Col>
-                            <Col size={49} style={Style.Col}>
-                                <Card style={Style.CardCol}>
-                                    <CardItem header bordered>
-                                        <Text style={Style.Text}>Ecuaciones</Text>
-                                    </CardItem>
-                                    <CardItem cardBody>
-                                        <Image source={require('../../assets/Images/maths.png')} style={Style.Img} />
                                     </CardItem>
                                 </Card>
                             </Col>

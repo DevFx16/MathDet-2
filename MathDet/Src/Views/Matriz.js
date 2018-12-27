@@ -4,30 +4,19 @@ import { Container, Content, Card, CardItem, Left, Thumbnail, Body } from 'nativ
 import { Row, Grid, Col } from 'react-native-easy-grid';
 import Style from '../Styles/MenuStyle';
 import Publicidad from './Publicidad';
-import Modal from 'react-native-modalbox';
-import MatrizView from './MatrizView';
-import ModalStyle from '../Styles/Modal';
+import Modal from './ModalBox';
 
 export default class Matriz extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { Abrir: true, Funcion: () => { } }
+    }
 
     render() {
         return (
             <Container>
-                <Modal isOpen position='center' style={ModalStyle.Modal}>
-                    <Container>
-                        <Content padder contentContainerStyle={Style.Grid}>
-                            <Grid>
-                                <Row size={30}>
-                                    <Col size={30}>
-                                        <MatrizView Fila={[1, 2, 3,4]} Columna={[1, 2, 3,4]}></MatrizView>
-                                    </Col>
-                                </Row>
-                                <Row size={30}></Row>
-                                <Row size={60}></Row>
-                            </Grid>
-                        </Content>
-                    </Container>
-                </Modal>
+                <Modal Funcion={this.state.Funcion} Abrir={this.state.Abrir} Cerrar={() => this.setState({ Abrir: false })} />
                 <Content padder contentContainerStyle={Style.Grid}>
                     <Grid>
                         <Row size={10} style={Style.Col}>
@@ -62,16 +51,6 @@ export default class Matriz extends React.Component {
                                         </Left>
                                         <Body>
                                             <Text style={[Style.Text]}>Traspuesta</Text>
-                                        </Body>
-                                    </CardItem>
-                                </Card>
-                                <Card style={Style.CardCol}>
-                                    <CardItem header bordered>
-                                        <Left>
-                                            <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
-                                        </Left>
-                                        <Body>
-                                            <Text style={[Style.Text]}>Inversa</Text>
                                         </Body>
                                     </CardItem>
                                 </Card>
