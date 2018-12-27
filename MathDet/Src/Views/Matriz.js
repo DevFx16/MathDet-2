@@ -10,7 +10,7 @@ export default class Matriz extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { Abrir: true, Funcion: () => { } }
+        this.state = { Abrir: false, Funcion: () => { } }
     }
 
     render() {
@@ -25,7 +25,7 @@ export default class Matriz extends React.Component {
                         <Row size={80}>
                             <Col size={100} style={Style.Alto}>
                                 <Card style={Style.CardCol}>
-                                    <CardItem header bordered>
+                                    <CardItem header bordered button onPress={() => this.setState({ Abrir: true })}>
                                         <Left>
                                             <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
                                         </Left>
@@ -35,7 +35,7 @@ export default class Matriz extends React.Component {
                                     </CardItem>
                                 </Card>
                                 <Card style={Style.CardCol}>
-                                    <CardItem header bordered>
+                                    <CardItem header bordered button onPress={() => this.setState({ Abrir: true })}>
                                         <Left>
                                             <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
                                         </Left>
@@ -45,7 +45,7 @@ export default class Matriz extends React.Component {
                                     </CardItem>
                                 </Card>
                                 <Card style={Style.CardCol}>
-                                    <CardItem header bordered>
+                                    <CardItem header bordered button onPress={() => this.setState({ Abrir: true })}>
                                         <Left>
                                             <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
                                         </Left>
