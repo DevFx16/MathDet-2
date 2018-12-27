@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { Container, Content, Header, Button, Icon, Right, Radio, Left, Body } from 'native-base';
+import { Container, Content, Header, Button, Icon, Right, Radio, Left } from 'native-base';
 import { Col, Grid, Row } from 'react-native-easy-grid';
 import Modal from 'react-native-modalbox';
 import MatrizView from './MatrizView';
@@ -12,7 +12,7 @@ export default class ModalBox extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { Array: [2, 2] }
+        this.state = { Array: [2, 2],  }
     }
 
     componentWillReceiveProps(props) {
