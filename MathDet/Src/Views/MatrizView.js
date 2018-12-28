@@ -10,6 +10,15 @@ export default class MatrizView extends React.Component {
     constructor(props) {
         super(props);
         this.state = { Vars: this.Array() }
+        this.Send = this.Datos.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.Datos(this.Send);
+    }
+
+    Datos() {
+        return this.state.Vars;
     }
 
     Array() {
@@ -50,7 +59,6 @@ export default class MatrizView extends React.Component {
                                                         <Input style={Style.Text} keyboardType='decimal-pad' keyboardAppearance='dark' value={this.state.Vars[i][it]} onChangeText={value => {
                                                             var Vars = this.state.Vars;
                                                             Vars[i][it] = value + '';
-                                                            console.log(Vars);
                                                             this.setState({ Vars: Vars });
                                                         }} />
                                                     </Item>
@@ -76,4 +84,5 @@ export default class MatrizView extends React.Component {
 MatrizView.propTypes = {
     Fila: PropType.array.isRequired,
     Columna: PropType.array.isRequired,
+    Datos: PropType.func.isRequired
 }

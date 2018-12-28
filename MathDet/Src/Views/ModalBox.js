@@ -7,12 +7,14 @@ import MatrizView from './MatrizView';
 import ModalStyle from '../Styles/Modal';
 import PropType from 'prop-types';
 import Style from '../Styles/MenuStyle';
-
+import { AlertasModule } from 'react-native-increibles-alertas';
 export default class ModalBox extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { Array: [2, 2],  }
+        this.state = { Array: [2, 2], Mostrar: false }
+        this.Datos = () => { }
+        this.Vars = [];
     }
 
     componentWillReceiveProps(props) {
@@ -20,9 +22,25 @@ export default class ModalBox extends React.Component {
         this.props.Cerrar ? null : this.refs.Modal.close();
     }
 
+    Funcion() {
+        this.Vars = this.Datos();
+        this.state.Array.map((item, i) => {
+            let bien = false;
+            this.state.Array.map((it, ind) => {
+                if (this.Vars[i][ind] == '') {
+                    bien = true;
+                    this.setState({ Mostrar: true });
+                    return;
+                }
+            });
+            if (bien) return;
+        });
+    }
+
     render() {
         return (
             <Modal isOpen={this.props.Abrir} position='center' style={ModalStyle.Modal} ref='Modal' backdropPressToClose={false} swipeToClose={false}>
+                <AlertasModule Tipo='error' Mensaje='Debe proporcionar todos los datos' Mostrar={this.state.Mostrar} TextoBotonConfirmado='Ok' onBotonConfirmado={() => { this.setState({ Mostrar: false }) }} Titulo='Error' />
                 <Container>
                     <Header>
                         <Right>
@@ -61,12 +79,12 @@ export default class ModalBox extends React.Component {
                             </Row>
                             <Row size={60}>
                                 <Col style={Style.Col}>
-                                    <MatrizView Fila={this.state.Array} Columna={this.state.Array}></MatrizView>
+                                    <MatrizView Fila={this.state.Array} Columna={this.state.Array} Datos={value => this.Datos = value} />
                                 </Col>
                             </Row>
                             <Row size={20}>
                                 <Col style={Style.Col}>
-                                    <Button full icon iconRight>
+                                    <Button full icon iconRight onPress={this.Funcion.bind(this)}>
                                         <Icon name='send' type='FontAwesome' fontSize={40} onPress={() => this.props.Cerrar()} />
                                     </Button>
                                 </Col>
