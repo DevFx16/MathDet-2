@@ -9,7 +9,7 @@ export default class MatrizView extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { Vars: this.Array() }
+        this.state = { Vars: this.props.Bloqueado ? this.props.Array : this.Array() }
         this.Send = this.Datos.bind(this);
     }
 
@@ -60,7 +60,7 @@ export default class MatrizView extends React.Component {
                                                             var Vars = this.state.Vars;
                                                             Vars[i][it] = value + '';
                                                             this.setState({ Vars: Vars });
-                                                        }} />
+                                                        }} disabled={this.props.Bloqueado} />
                                                     </Item>
                                                 </Col>
                                             );
@@ -84,5 +84,7 @@ export default class MatrizView extends React.Component {
 MatrizView.propTypes = {
     Fila: PropType.array.isRequired,
     Columna: PropType.array.isRequired,
-    Datos: PropType.func.isRequired
+    Datos: PropType.func.isRequired,
+    Bloqueado: PropType.bool.isRequired,
+    Array: PropType.array.isRequired
 }

@@ -24,8 +24,9 @@ export default class ModalBox extends React.Component {
 
     Funcion() {
         this.Vars = this.Datos();
+        let bien = false;
         this.state.Array.map((item, i) => {
-            let bien = false;
+            bien = false;
             this.state.Array.map((it, ind) => {
                 if (this.Vars[i][ind] == '') {
                     bien = true;
@@ -35,6 +36,7 @@ export default class ModalBox extends React.Component {
             });
             if (bien) return;
         });
+        if (!bien) this.props.Funcion(this.state.Array.length, this.Vars);
     }
 
     render() {
@@ -79,7 +81,7 @@ export default class ModalBox extends React.Component {
                             </Row>
                             <Row size={60}>
                                 <Col style={Style.Col}>
-                                    <MatrizView Fila={this.state.Array} Columna={this.state.Array} Datos={value => this.Datos = value} />
+                                    <MatrizView Fila={this.state.Array} Columna={this.state.Array} Datos={value => this.Datos = value} Array={[]} Bloqueado={false} />
                                 </Col>
                             </Row>
                             <Row size={20}>
