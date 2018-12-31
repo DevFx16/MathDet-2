@@ -5,7 +5,7 @@ import { Row, Grid, Col } from 'react-native-easy-grid';
 import Style from '../Styles/MenuStyle';
 import Publicidad from './Publicidad';
 import Modal from './ModalBox';
-import { Determinante } from '../Controllers/MatrizController';
+import { Determinante, Traspuesta } from '../Controllers/MatrizController';
 
 export default class Matriz extends React.Component {
 
@@ -46,7 +46,7 @@ export default class Matriz extends React.Component {
                                     </CardItem>
                                 </Card>
                                 <Card style={Style.CardCol}>
-                                    <CardItem header bordered button onPress={() => this.setState({ Abrir: true })}>
+                                    <CardItem header bordered button onPress={() => this.setState({ Abrir: true, Funcion: Traspuesta })}>
                                         <Left>
                                             <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
                                         </Left>

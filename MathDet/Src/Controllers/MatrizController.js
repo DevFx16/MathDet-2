@@ -4,6 +4,23 @@ export function Determinante(Valor, Matriz) {
     else DeterminanteCuatro(Matriz);
 }
 
+export function Traspuesta(Valor, Matriz) {
+    var Traspuesta = [];
+    console.log(Matriz);
+    Matriz.map((ref, index) => {
+        var fil = [];
+        Matriz.map((item, fila) => {
+            fil.push(item[index]);
+        });
+        Traspuesta.push(fil);
+    });
+    console.log(Traspuesta);
+    return {
+        Traspuesta: Traspuesta,
+        Matriz: Matriz
+    }
+}
+
 function DetrminanteDos(Matriz) {
     let Mult1 = Matriz[0][0] * Matriz[1][1];
     let Mult2 = Matriz[0][1] * Matriz[1][0];
