@@ -6,7 +6,6 @@ export function Determinante(Valor, Matriz) {
 
 export function Traspuesta(Valor, Matriz) {
     var Traspuesta = [];
-    console.log(Matriz);
     Matriz.map((ref, index) => {
         var fil = [];
         Matriz.map((item, fila) => {

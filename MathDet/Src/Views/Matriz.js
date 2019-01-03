@@ -5,19 +5,21 @@ import { Row, Grid, Col } from 'react-native-easy-grid';
 import Style from '../Styles/MenuStyle';
 import Publicidad from './Publicidad';
 import Modal from './ModalBox';
+import ModalOp from './Operaciones';
 import { Determinante, Traspuesta } from '../Controllers/MatrizController';
 
 export default class Matriz extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { Abrir: false, Funcion: () => { } }
+        this.state = { Abrir: false, Funcion: () => { }, AbrirOp: false }
     }
 
     render() {
         return (
             <Container>
                 <Modal Funcion={this.state.Funcion} Abrir={this.state.Abrir} Cerrar={() => this.setState({ Abrir: false })} />
+                <ModalOp Funcion={this.state.Funcion} Abrir={this.state.AbrirOp} Cerrar={() => this.setState({ AbrirOp: false })} />
                 <Content padder contentContainerStyle={Style.Grid}>
                     <Grid>
                         <Row size={10} style={Style.Col}>
@@ -26,7 +28,7 @@ export default class Matriz extends React.Component {
                         <Row size={80}>
                             <Col size={100} style={Style.Alto}>
                                 <Card style={Style.CardCol}>
-                                    <CardItem header bordered button onPress={() => this.setState({ Abrir: true })}>
+                                    <CardItem header bordered button onPress={() => this.setState({ AbrirOp: true })}>
                                         <Left>
                                             <Thumbnail source={require('../../assets/Images/matriz.png')}></Thumbnail>
                                         </Left>

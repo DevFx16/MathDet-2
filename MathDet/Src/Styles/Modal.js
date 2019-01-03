@@ -5,6 +5,10 @@ export default StyleSheet.create({
         width: '80%',
         height: '60%',
     },
+    ModalOp: {
+        width: '95%',
+        height: '70%',
+    },
     Text: {
         borderWidth: 1,
         borderColor: 'violet',
