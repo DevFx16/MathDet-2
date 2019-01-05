@@ -6,6 +6,7 @@ import Modal from 'react-native-modalbox';
 import Style from '../Styles/MenuStyle';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import MatrizView from './MatrizView';
+import { AlertasModule } from 'react-native-increibles-alertas';
 
 export default class Operaciones extends React.Component {
 
@@ -20,7 +21,23 @@ export default class Operaciones extends React.Component {
 
     Funcion() {
         this.Vars = { Mat1: this.Mat1(), Mat2: this.Mat2() }
-        console.log(this.Vars);
+        if(!Validar(this.Vars)) console.log("bien");
+    }
+
+    Validar(Vars){
+        let bien = false;
+        this.state.Array[this.state.Picker].map((item, i) => {
+            bien = false;
+            this.state.Array[this.state.Picker].map((it, ind) => {
+                if (Vars.Mat1[i][ind] == '' || Vars.Mat2[i][ind] == '') {
+                    bien = true;
+                    this.setState({ Mostrar: true });
+                    return;
+                }
+            });
+            if (bien) return;
+        });
+        return bien;
     }
 
     componentWillReceiveProps(props) {
@@ -31,6 +48,7 @@ export default class Operaciones extends React.Component {
     render() {
         return (
             <Modal isOpen={this.props.Abrir} position='center' style={ModalStyle.Modal} ref='Modal' backdropPressToClose={false} swipeToClose={false}>
+                <AlertasModule Tipo='error' Mensaje='Debe proporcionar todos los datos' Mostrar={this.state.Mostrar} TextoBotonConfirmado='Ok' onBotonConfirmado={() => { this.setState({ Mostrar: false }) }} Titulo='Error' />
                 <Container>
                     <Header>
                         <Right>
@@ -39,7 +57,7 @@ export default class Operaciones extends React.Component {
                             </Button>
                         </Right>
                     </Header>
-                    <Content padder style={Style.Grid}>
+                    <Content padder contentContainerStyle={Style.Grid}>
                         <Grid>
                             <Row size={10}>
                                 <Col style={Style.Col}>
