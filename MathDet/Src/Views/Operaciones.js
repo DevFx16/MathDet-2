@@ -1,6 +1,6 @@
 import React from 'react';
 import PropType from 'prop-types';
-import { Container, Content, Right, Header, Button, Icon, Picker } from 'native-base';
+import { Container, Content, Right, Header, Button, Icon, Picker, Input, Item } from 'native-base';
 import ModalStyle from '../Styles/Modal';
 import Modal from 'react-native-modalbox';
 import Style from '../Styles/MenuStyle';
@@ -12,7 +12,7 @@ export default class Operaciones extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { Array: [2, 2], Mostrar: false, Operacion: 'Suma', Picker: '0' }
+        this.state = { Array: [2, 2], Mostrar: false, Operacion: 'Suma', Picker: '0', Escalar: '0' }
         this.Mat1 = () => { return [] }
         this.Mat2 = () => { return [] }
         this.Vars = { Mat1: [], Mat2: [] }
@@ -21,21 +21,26 @@ export default class Operaciones extends React.Component {
 
     Funcion() {
         this.Vars = { Mat1: this.Mat1(), Mat2: this.Mat2() }
-        if(!Validar(this.Vars)) console.log("bien");
+        if (!this.Validar(this.Vars)) console.log("bien");
     }
 
-    Validar(Vars){
+    Validar(Vars) {
         let bien = false;
-        this.state.Array[this.state.Picker].map((item, i) => {
+        this.state.Array.map((item, i) => {
             bien = false;
-            this.state.Array[this.state.Picker].map((it, ind) => {
-                if (Vars.Mat1[i][ind] == '' || Vars.Mat2[i][ind] == '') {
+            this.state.Array.map((it, ind) => {
+                if (this.state.Operacion !== 'Escalar' && Vars.Mat1[i][ind] === '' || Vars.Mat2[i][ind] == '') {
                     bien = true;
-                    this.setState({ Mostrar: true });
+                    return;
+                } else if (this.state.Operacion === 'Escalar' && Vars.Mat1[i][ind] == '' || this.state.Escalar === '') {
+                    bien = true;
                     return;
                 }
             });
-            if (bien) return;
+            if (bien) {
+                this.setState({ Mostrar: true });
+                return
+            };
         });
         return bien;
     }
@@ -81,7 +86,13 @@ export default class Operaciones extends React.Component {
                                 </Col>
                                 <Col size={2} />
                                 <Col style={Style.Col} size={49}>
-                                    <MatrizView Fila={this.state.Array} Columna={this.state.Array} Datos={value => this.Mat2 = value} Array={[]} Bloqueado={false} />
+                                    {
+                                        this.state.Operacion == 'Escalar' ?
+                                            <Item last>
+                                                <Input style={ModalStyle.Text} keyboardType='decimal-pad' keyboardAppearance='dark' value={this.state.Escalar} onChangeText={value => this.setState({ Escalar: value })} />
+                                            </Item> :
+                                            <MatrizView Fila={this.state.Array} Columna={this.state.Array} Datos={value => this.Mat2 = value} Array={[]} Bloqueado={false} />
+                                    }
                                 </Col>
                             </Row>
                             <Row size={10}>
