@@ -29,6 +29,29 @@ export function Escalar(Escalar, Matriz) {
         });
         Result.push(fil);
     });
+    console.log(Result);
+    return {
+        Escalar: Escalar,
+        Matriz: Matriz,
+        Result: Result
+    }
+}
+
+export function Suma(Matriz1, Matriz2, Suma) {
+    var Result = [];
+    Matriz1.map((item, index) => {
+        var fil = [];
+        item.map((valor, ind) => {
+            let suma = Suma ? valor + Matriz2[index][ind] : valor - Matriz2[index][ind]
+            fil.push(suma);
+        });
+    });
+    console.log(Result);
+    return {
+        Matriz1: Matriz1,
+        Matriz2: Matriz2,
+        Result: Result
+    }
 }
 
 function DetrminanteDos(Matriz) {
