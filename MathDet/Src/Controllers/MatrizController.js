@@ -20,6 +20,17 @@ export function Traspuesta(Valor, Matriz) {
     }
 }
 
+export function Escalar(Escalar, Matriz) {
+    var Result = [];
+    Matriz.map((ref) => {
+        var fil = [];
+        ref.map((item) => {
+            fil.push(item * Escalar);
+        });
+        Result.push(fil);
+    });
+}
+
 function DetrminanteDos(Matriz) {
     let Mult1 = Matriz[0][0] * Matriz[1][1];
     let Mult2 = Matriz[0][1] * Matriz[1][0];
