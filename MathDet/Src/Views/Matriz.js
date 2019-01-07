@@ -6,20 +6,20 @@ import Style from '../Styles/MenuStyle';
 import Publicidad from './Publicidad';
 import Modal from './ModalBox';
 import ModalOp from './Operaciones';
-import { Determinante, Traspuesta } from '../Controllers/MatrizController';
+import { Determinante, Traspuesta, Suma, Escalar } from '../Controllers/MatrizController';
 
 export default class Matriz extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { Abrir: false, Funcion: () => { }, AbrirOp: false }
+        this.state = { Abrir: false, AbrirOp: false, Funcion: () => { } }
     }
 
     render() {
         return (
             <Container>
                 <Modal Funcion={this.state.Funcion} Abrir={this.state.Abrir} Cerrar={() => this.setState({ Abrir: false })} />
-                <ModalOp Funcion={this.state.Funcion} Abrir={this.state.AbrirOp} Cerrar={() => this.setState({ AbrirOp: false })} />
+                <ModalOp Funcion={{ Suma: Suma, Escalar: Escalar }} Abrir={this.state.AbrirOp} Cerrar={() => this.setState({ AbrirOp: false })} />
                 <Content padder contentContainerStyle={Style.Grid}>
                     <Grid>
                         <Row size={10} style={Style.Col}>

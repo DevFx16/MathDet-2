@@ -21,7 +21,11 @@ export default class Operaciones extends React.Component {
 
     Funcion() {
         this.Vars = { Mat1: this.Mat1(), Mat2: this.Mat2() }
-        if (!this.Validar(this.Vars)) console.log("bien");
+        if (!this.Validar(this.Vars)) {
+            if (this.state.Operacion === 'Suma') this.props.Funcion.Suma(this.Vars.Mat1, this.Vars.Mat2, true);
+            else if (this.state.Operacion === 'Resta') this.props.Funcion.Suma(this.Vars.Mat1, this.Vars.Mat2, false);
+            else if (this.state.Operacion === 'Escalar') this.props.Funcion.Escalar(this.state.Escalar, this.Vars.Mat1);
+        }
     }
 
     Validar(Vars) {
@@ -29,10 +33,10 @@ export default class Operaciones extends React.Component {
         this.state.Array.map((item, i) => {
             bien = false;
             this.state.Array.map((it, ind) => {
-                if (this.state.Operacion !== 'Escalar' && Vars.Mat1[i][ind] === '' || Vars.Mat2[i][ind] == '') {
+                if (this.state.Operacion !== 'Escalar' && (Vars.Mat1[i][ind] === '' || Vars.Mat2[i][ind] == '')) {
                     bien = true;
                     return;
-                } else if (this.state.Operacion === 'Escalar' && Vars.Mat1[i][ind] == '' || this.state.Escalar === '') {
+                } else if (this.state.Operacion === 'Escalar' && (Vars.Mat1[i][ind] === '' || this.state.Escalar === '')) {
                     bien = true;
                     return;
                 }
@@ -75,6 +79,7 @@ export default class Operaciones extends React.Component {
                                 <Col style={Style.Col}>
                                     <Picker mode='dropdown' note style={[{ width: '100%' }]} selectedValue={this.state.Operacion} onValueChange={value => this.setState({ Operacion: value })}>
                                         <Picker.Item label='Suma' value='Suma' />
+                                        <Picker.Item label='Resta' value='Resta' />
                                         <Picker.Item label='Producto' value='Producto' />
                                         <Picker.Item label='Producto Escalar' value='Escalar' />
                                     </Picker>
@@ -112,7 +117,7 @@ export default class Operaciones extends React.Component {
 }
 
 Operaciones.propTypes = {
-    Funcion: PropType.func.isRequired,
+    Funcion: PropType.object.isRequired,
     Cerrar: PropType.func.isRequired,
     Abrir: PropType.bool.isRequired
 }

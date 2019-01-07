@@ -42,9 +42,10 @@ export function Suma(Matriz1, Matriz2, Suma) {
     Matriz1.map((item, index) => {
         var fil = [];
         item.map((valor, ind) => {
-            let suma = Suma ? valor + Matriz2[index][ind] : valor - Matriz2[index][ind]
+            let suma = Suma ? valor * 1 + Matriz2[index][ind] * 1 : valor * 1 - Matriz2[index][ind] * 1
             fil.push(suma);
         });
+        Result.push(fil);
     });
     console.log(Result);
     return {

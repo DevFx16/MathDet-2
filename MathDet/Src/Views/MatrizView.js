@@ -10,15 +10,11 @@ export default class MatrizView extends React.Component {
     constructor(props) {
         super(props);
         this.state = { Vars: this.props.Bloqueado ? this.props.Array : this.Array() }
-        this.Send = this.Datos.bind(this);
+        this.Send = () => { return this.state.Vars; }
     }
 
     componentDidMount() {
         this.props.Datos(this.Send);
-    }
-
-    Datos() {
-        return this.state.Vars;
     }
 
     Array() {
