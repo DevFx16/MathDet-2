@@ -25,6 +25,7 @@ export default class Operaciones extends React.Component {
             if (this.state.Operacion === 'Suma') this.props.Funcion.Suma(this.Vars.Mat1, this.Vars.Mat2, true);
             else if (this.state.Operacion === 'Resta') this.props.Funcion.Suma(this.Vars.Mat1, this.Vars.Mat2, false);
             else if (this.state.Operacion === 'Escalar') this.props.Funcion.Escalar(this.state.Escalar, this.Vars.Mat1);
+            else this.props.Funcion.Multiplicacion(this.Vars.Mat1, this.Vars.Mat2);
         }
     }
 

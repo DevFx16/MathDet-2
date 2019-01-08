@@ -55,6 +55,27 @@ export function Suma(Matriz1, Matriz2, Suma) {
     }
 }
 
+export function Multiplicacion(Matriz1, Matriz2) {
+    var Result = [];
+    Matriz1.map((item, index) => {
+        var fil = [];
+        Matriz2.map((mat, ini) => {
+            let val = 0;
+            item.map((valor, i) => {
+                val = val + valor * Matriz2[i][ini];
+            });
+            fil.push(val);
+        });
+        Result.push(fil);
+    });
+    console.log(Result);
+    return {
+        Mat1: Matriz1,
+        Mat2: Matriz2,
+        Result: Result
+    }
+}
+
 function DetrminanteDos(Matriz) {
     let Mult1 = Matriz[0][0] * Matriz[1][1];
     let Mult2 = Matriz[0][1] * Matriz[1][0];
