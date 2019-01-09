@@ -1,7 +1,7 @@
 export function Determinante(Valor, Matriz) {
-    if (Valor == 2) DetrminanteDos(Matriz);
-    else if (Valor == 3) DeterminanteTres(Matriz);
-    else DeterminanteCuatro(Matriz);
+    if (Valor == 2) return DetrminanteDos(Matriz);
+    else if (Valor == 3) return DeterminanteTres(Matriz);
+    else return DeterminanteCuatro(Matriz);
 }
 
 export function Traspuesta(Valor, Matriz) {
@@ -84,6 +84,8 @@ function DetrminanteDos(Matriz) {
     return {
         Mult1: Mult1,
         Mult2: Mult2,
+        Original: Matriz,
+        Metodo: false,
         Det: Det
     }
 }
@@ -98,12 +100,10 @@ function DeterminanteTres(Matriz) {
     let Det = Co1 - Co2 + Co3;
     console.log(Det);
     return {
-        Co1: Co1,
-        Co2: Co2,
-        Co3: Co3,
-        Mat1: Mat1,
-        Mat2: Mat2,
-        Mat3: Mat3,
+        Cofactores: [Co1, Co2, Co3],
+        Matrices: [Mat1, Mat2, Mat3],
+        Original: Matriz,
+        Metodo: true,
         Det: Det
     }
 }
@@ -120,14 +120,10 @@ function DeterminanteCuatro(Matriz) {
     let Det = Co1 - Co2 + Co3 - Co4;
     console.log(Det);
     return {
-        Mat1: Mat1,
-        Mat2: Mat2,
-        Mat3: Mat3,
-        Mat4: Mat4,
-        Co1: Co1,
-        Co2: Co2,
-        Co3: Co3,
-        Co4: Co4,
+        Cofactores: [Co1, Co2, Co3, Co4],
+        Matrices: [Mat1, Mat2, Mat3, Mat4],
+        Original: Matriz,
+        Metodo: true,
         Det: Det
     }
 }

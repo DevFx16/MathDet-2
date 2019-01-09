@@ -88,7 +88,7 @@ export default class Operaciones extends React.Component {
                             </Row>
                             <Row size={80}>
                                 <Col style={Style.Col} size={49}>
-                                    <MatrizView Fila={this.state.Array} Columna={this.state.Array} Datos={value => this.Mat1 = value} Array={[]} Bloqueado={false} />
+                                    <MatrizView Orden={this.state.Array} Datos={value => this.Mat1 = value} Array={[]} Bloqueado={false} />
                                 </Col>
                                 <Col size={2} />
                                 <Col style={Style.Col} size={49}>
@@ -97,7 +97,7 @@ export default class Operaciones extends React.Component {
                                             <Item last>
                                                 <Input style={ModalStyle.Text} keyboardType='decimal-pad' keyboardAppearance='dark' value={this.state.Escalar} onChangeText={value => this.setState({ Escalar: value })} />
                                             </Item> :
-                                            <MatrizView Fila={this.state.Array} Columna={this.state.Array} Datos={value => this.Mat2 = value} Array={[]} Bloqueado={false} />
+                                            <MatrizView Orden={this.state.Array} Datos={value => this.Mat2 = value} Array={[]} Bloqueado={false} />
                                     }
                                 </Col>
                             </Row>

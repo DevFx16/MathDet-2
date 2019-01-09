@@ -19,9 +19,9 @@ export default class MatrizView extends React.Component {
 
     Array() {
         var Vars = [];
-        this.props.Fila.map((item, index) => {
+        this.props.Orden.map((item, index) => {
             Vars.push([]);
-            this.props.Columna.map(() => {
+            this.props.Orden.map(() => {
                 Vars[index].push('')
             });
         });
@@ -43,12 +43,12 @@ export default class MatrizView extends React.Component {
         return (
             <Grid>
                 {
-                    this.state.Vars.length == this.props.Fila.length ?
-                        this.props.Fila.map((item, i) => {
+                    this.state.Vars.length == this.props.Orden.length ?
+                        this.props.Orden.map((item, i) => {
                             return (
                                 <Row key={i}>
                                     {
-                                        this.props.Columna.map((ite, it) => {
+                                        this.props.Orden.map((ite, it) => {
                                             return (
                                                 <Col key={it} style={Menu.Col}>
                                                     <Item last>
@@ -78,8 +78,7 @@ export default class MatrizView extends React.Component {
 }
 
 MatrizView.propTypes = {
-    Fila: PropType.array.isRequired,
-    Columna: PropType.array.isRequired,
+    Orden: PropType.array.isRequired,
     Datos: PropType.func.isRequired,
     Bloqueado: PropType.bool.isRequired,
     Array: PropType.array.isRequired

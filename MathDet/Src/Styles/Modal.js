@@ -9,6 +9,10 @@ export default StyleSheet.create({
         width: '95%',
         height: '70%',
     },
+    Result: {
+        width: '95%',
+        height: '95%',
+    },
     Text: {
         borderWidth: 1,
         borderColor: 'violet',
