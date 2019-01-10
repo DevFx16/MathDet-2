@@ -35,7 +35,10 @@ export default class Result extends React.Component {
                                     }
                                 </Col>
                             </Row>
-                            <Row size={64}>
+                            <Row size={1}>
+                                <Text style={[Style.Text]}></Text>
+                            </Row>
+                            <Row size={63}>
                                 <ScrollView>
                                     {
                                         this.props.Result.Metodo ?
@@ -43,19 +46,23 @@ export default class Result extends React.Component {
                                                 return (
                                                     <Row key={index}>
                                                         <Col style={Style.Col} size={50}>
-                                                            <MatrizView Orden={matriz} Datos={value => { }} Array={matriz} Bloqueado />
-                                                            <Row size={2}>
-                                                                <Col style={Style.Col} />
+                                                            <Row size={99}>
+                                                                <Col style={Style.Col}>
+                                                                    <MatrizView Orden={matriz} Datos={value => { }} Array={matriz} Bloqueado />
+                                                                </Col>
+                                                            </Row>
+                                                            <Row size={1}>
+                                                                <Text style={[Style.Text]}></Text>
                                                             </Row>
                                                         </Col>
-                                                        <Col style={Style.Col} size={5}></Col>
-                                                        <Col style={Style.Col} size={15}>
+                                                        <Col style={Style.Col} size={4}></Col>
+                                                        <Col style={Style.Col} size={6}>
                                                             <Text style={[Style.Text]}>*</Text>
                                                         </Col>
-                                                        <Col style={Style.Col} size={15}>
+                                                        <Col style={Style.Col} size={20}>
                                                             <Text style={[Style.Text]}>{this.props.Result.Cofactores[index]}</Text>
                                                         </Col>
-                                                        <Col style={Style.Col} size={15}>
+                                                        <Col style={Style.Col} size={20}>
                                                             <Text style={[Style.Text]}>{'= ' + this.props.Result.CoResult[index]}</Text>
                                                         </Col>
                                                     </Row>
