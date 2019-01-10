@@ -100,7 +100,8 @@ function DeterminanteTres(Matriz) {
     let Det = Co1 - Co2 + Co3;
     console.log(Det);
     return {
-        Cofactores: [Co1, Co2, Co3],
+        Cofactores: [Matriz[0][0], Matriz[0][1], Matriz[0][2]],
+        CoResult: [Co1, Co2, Co3],
         Matrices: [Mat1, Mat2, Mat3],
         Original: Matriz,
         Metodo: true,
@@ -120,7 +121,8 @@ function DeterminanteCuatro(Matriz) {
     let Det = Co1 - Co2 + Co3 - Co4;
     console.log(Det);
     return {
-        Cofactores: [Co1, Co2, Co3, Co4],
+        Cofactores: [Matriz[0][0], Matriz[0][1], Matriz[0][2], Matriz[0][3]],
+        CoResult: [Co1, Co2, Co3, Co4],
         Matrices: [Mat1, Mat2, Mat3, Mat4],
         Original: Matriz,
         Metodo: true,

@@ -28,6 +28,10 @@ export default StyleSheet.create({
     Alto: {
         justifyContent: 'space-between'
     },
+    Input: {
+        height: '80%',
+        width: '80%'
+    },
     Text: {
         fontFamily: 'Gloria',
         fontSize: 20,

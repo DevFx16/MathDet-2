@@ -38,50 +38,53 @@ export default class ModalBox extends React.Component {
             });
             if (bien) return;
         });
-        if (!bien) this.setState({ Result: this.props.Funcion(this.state.Array.length, this.Vars) });
+        if (!bien) this.setState({ Result: this.props.Funcion(this.state.Array.length, this.Vars), Abrir: true });
     }
 
     render() {
-        return (
-            <Modal isOpen={this.props.Abrir} position='center' style={ModalStyle.ModalOp} ref='Modal' backdropPressToClose={false} swipeToClose={false}>
-                <AlertasModule Tipo='error' Mensaje='Debe proporcionar todos los datos' Mostrar={this.state.Mostrar} TextoBotonConfirmado='Ok' onBotonConfirmado={() => { this.setState({ Mostrar: false }) }} Titulo='Error' />
-                <Result Abrir={this.state.Abrir} Result={this.state.Result} Cerrar={() => this.setState({ Abrir: false })} />
-                <Container>
-                    <Header>
-                        <Right>
-                            <Button block transparent icon>
-                                <Icon name='squared-cross' type='Entypo' fontSize={40} onPress={() => this.props.Cerrar()} />
-                            </Button>
-                        </Right>
-                    </Header>
-                    <Content padder contentContainerStyle={Style.Grid}>
-                        <Grid>
-                            <Row size={15}>
-                                <Col style={Style.Col}>
-                                    <Picker mode='dropdown' note style={[{ width: '100%' }]} selectedValue={this.state.Picker} onValueChange={val => this.setState({ Array: this.Array[val], Picker: val })}>
-                                        <Picker.Item label='2X2' value='0' />
-                                        <Picker.Item label='3X3' value='1' />
-                                        <Picker.Item label='4X4' value='2' />
-                                    </Picker>
-                                </Col>
-                            </Row>
-                            <Row size={70}>
-                                <Col style={Style.Col}>
-                                    <MatrizView Orden={this.state.Array} Datos={value => this.Datos = value} Array={[]} Bloqueado={false} />
-                                </Col>
-                            </Row>
-                            <Row size={15}>
-                                <Col style={Style.Col}>
-                                    <Button full icon iconRight onPress={this.Funcion.bind(this)}>
-                                        <Icon name='send' type='FontAwesome' fontSize={40} />
-                                    </Button>
-                                </Col>
-                            </Row>
-                        </Grid>
-                    </Content>
-                </Container>
-            </Modal >
-        );
+        if (this.state.Abrir) {
+            return (<Result Abrir={this.state.Abrir} Result={this.state.Result} Cerrar={() => this.setState({ Abrir: false })} />);
+        } else {
+            return (
+                <Modal isOpen={this.props.Abrir} position='center' style={ModalStyle.ModalOp} ref='Modal' backdropPressToClose={false} swipeToClose={false}>
+                    <AlertasModule Tipo='error' Mensaje='Debe proporcionar todos los datos' Mostrar={this.state.Mostrar} TextoBotonConfirmado='Ok' onBotonConfirmado={() => { this.setState({ Mostrar: false }) }} Titulo='Error' />
+                    <Container>
+                        <Header>
+                            <Right>
+                                <Button block transparent icon>
+                                    <Icon name='squared-cross' type='Entypo' fontSize={40} onPress={() => this.props.Cerrar()} />
+                                </Button>
+                            </Right>
+                        </Header>
+                        <Content padder contentContainerStyle={Style.Grid}>
+                            <Grid>
+                                <Row size={15}>
+                                    <Col style={Style.Col}>
+                                        <Picker mode='dropdown' note style={[{ width: '100%' }]} selectedValue={this.state.Picker} onValueChange={val => this.setState({ Array: this.Array[val], Picker: val })}>
+                                            <Picker.Item label='2X2' value='0' />
+                                            <Picker.Item label='3X3' value='1' />
+                                            <Picker.Item label='4X4' value='2' />
+                                        </Picker>
+                                    </Col>
+                                </Row>
+                                <Row size={70}>
+                                    <Col style={Style.Col}>
+                                        <MatrizView Orden={this.state.Array} Datos={value => this.Datos = value} Array={[]} Bloqueado={false} />
+                                    </Col>
+                                </Row>
+                                <Row size={15}>
+                                    <Col style={Style.Col}>
+                                        <Button full icon iconRight onPress={this.Funcion.bind(this)}>
+                                            <Icon name='send' type='FontAwesome' fontSize={40} />
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </Grid>
+                        </Content>
+                    </Container>
+                </Modal >
+            );
+        }
     }
 }
 

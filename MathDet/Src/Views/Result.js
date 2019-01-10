@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text, ScrollView } from 'react-native';
 import { Container, Content, Header, Right, Button, Icon } from 'native-base';
 import Modal from 'react-native-modalbox';
 import ModalStyle from '../Styles/Modal';
@@ -16,7 +17,7 @@ export default class Result extends React.Component {
 
     render() {
         return (
-            <Modal isOpen={this.props.Abrir} position='center' style={ModalStyle.ModalOp} ref='Modal' backdropPressToClose={false} swipeToClose={false}>
+            <Modal isOpen={this.props.Abrir} position='center' style={ModalStyle.Result} ref='Modal' backdropPressToClose={false} swipeToClose={false}>
                 <Container>
                     <Header>
                         <Right>
@@ -27,9 +28,45 @@ export default class Result extends React.Component {
                     </Header>
                     <Content padder contentContainerStyle={Style.Grid}>
                         <Grid>
-                            <Row>
+                            <Row size={30}>
                                 <Col style={Style.Col}>
-                                    <MatrizView Orden={this.props.Result.Original} Datos={value => { }} Array={this.props.Result.Original} Bloqueado />
+                                    {
+                                        this.props.Abrir ? <MatrizView Orden={this.props.Result.Original} Datos={value => { }} Array={this.props.Result.Original} Bloqueado /> : null
+                                    }
+                                </Col>
+                            </Row>
+                            <Row size={64}>
+                                <ScrollView>
+                                    {
+                                        this.props.Result.Metodo ?
+                                            this.props.Result.Matrices.map((matriz, index) => {
+                                                return (
+                                                    <Row key={index}>
+                                                        <Col style={Style.Col} size={50}>
+                                                            <MatrizView Orden={matriz} Datos={value => { }} Array={matriz} Bloqueado />
+                                                            <Row size={2}>
+                                                                <Col style={Style.Col} />
+                                                            </Row>
+                                                        </Col>
+                                                        <Col style={Style.Col} size={5}></Col>
+                                                        <Col style={Style.Col} size={15}>
+                                                            <Text style={[Style.Text]}>*</Text>
+                                                        </Col>
+                                                        <Col style={Style.Col} size={15}>
+                                                            <Text style={[Style.Text]}>{this.props.Result.Cofactores[index]}</Text>
+                                                        </Col>
+                                                        <Col style={Style.Col} size={15}>
+                                                            <Text style={[Style.Text]}>{'= ' + this.props.Result.CoResult[index]}</Text>
+                                                        </Col>
+                                                    </Row>
+                                                )
+                                            }) : null
+                                    }
+                                </ScrollView>
+                            </Row>
+                            <Row size={4}>
+                                <Col style={Style.Col}>
+                                    <Text style={[Style.Text]}>{'Determinante = ' + this.props.Result.Det}</Text>
                                 </Col>
                             </Row>
                         </Grid>
@@ -43,6 +80,6 @@ export default class Result extends React.Component {
 
 Result.propTypes = {
     Result: PropTypes.object.isRequired,
-    Cerrar: PropType.func.isRequired,
-    Abrir: PropType.bool.isRequired
+    Cerrar: PropTypes.func.isRequired,
+    Abrir: PropTypes.bool.isRequired
 } 

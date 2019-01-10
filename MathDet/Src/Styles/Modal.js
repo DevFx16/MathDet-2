@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 export default StyleSheet.create({
     Modal: {
@@ -11,7 +11,7 @@ export default StyleSheet.create({
     },
     Result: {
         width: '95%',
-        height: '95%',
+        height: Dimensions.get('window').height - 5,
     },
     Text: {
         borderWidth: 1,
