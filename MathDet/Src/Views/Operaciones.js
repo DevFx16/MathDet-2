@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import PropType from 'prop-types';
 import { Container, Content, Right, Header, Button, Icon, Picker, Input, Item } from 'native-base';
 import ModalStyle from '../Styles/Modal';
@@ -88,7 +89,9 @@ export default class Operaciones extends React.Component {
                             </Row>
                             <Row size={80}>
                                 <Col style={Style.Col} size={49}>
-                                    <MatrizView Orden={this.state.Array} Datos={value => this.Mat1 = value} Array={[]} Bloqueado={false} />
+                                    <ScrollView>
+                                        <MatrizView Orden={this.state.Array} Datos={value => this.Mat1 = value} Array={[]} Bloqueado={false} />
+                                    </ScrollView>
                                 </Col>
                                 <Col size={2} />
                                 <Col style={Style.Col} size={49}>
@@ -97,7 +100,9 @@ export default class Operaciones extends React.Component {
                                             <Item last>
                                                 <Input style={ModalStyle.Text} keyboardType='decimal-pad' keyboardAppearance='dark' value={this.state.Escalar} onChangeText={value => this.setState({ Escalar: value })} />
                                             </Item> :
-                                            <MatrizView Orden={this.state.Array} Datos={value => this.Mat2 = value} Array={[]} Bloqueado={false} />
+                                            <ScrollView>
+                                                <MatrizView Orden={this.state.Array} Datos={value => this.Mat2 = value} Array={[]} Bloqueado={false} />
+                                            </ScrollView>
                                     }
                                 </Col>
                             </Row>

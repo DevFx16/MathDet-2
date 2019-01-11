@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import { Container, Content, Header, Button, Icon, Right, Picker } from 'native-base';
 import { Col, Grid, Row } from 'react-native-easy-grid';
 import Modal from 'react-native-modalbox';
@@ -69,7 +70,9 @@ export default class ModalBox extends React.Component {
                                 </Row>
                                 <Row size={70}>
                                     <Col style={Style.Col}>
-                                        <MatrizView Orden={this.state.Array} Datos={value => this.Datos = value} Array={[]} Bloqueado={false} />
+                                        <ScrollView>
+                                            <MatrizView Orden={this.state.Array} Datos={value => this.Datos = value} Array={[]} Bloqueado={false} />
+                                        </ScrollView>
                                     </Col>
                                 </Row>
                                 <Row size={15}>

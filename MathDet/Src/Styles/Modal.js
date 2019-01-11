@@ -7,7 +7,7 @@ export default StyleSheet.create({
     },
     ModalOp: {
         width: '95%',
-        height: '70%',
+        height: '50%',
     },
     Result: {
         width: '95%',

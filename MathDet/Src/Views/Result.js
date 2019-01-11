@@ -29,11 +29,13 @@ export default class Result extends React.Component {
                     <Content padder contentContainerStyle={Style.Grid}>
                         <Grid>
                             <Row size={30}>
-                                <Col style={Style.Col}>
-                                    {
-                                        this.props.Abrir ? <MatrizView Orden={this.props.Result.Original} Datos={value => { }} Array={this.props.Result.Original} Bloqueado /> : null
-                                    }
-                                </Col>
+                                <ScrollView>
+                                    <Col style={Style.Col}>
+                                        {
+                                            this.props.Abrir ? <MatrizView Orden={this.props.Result.Original} Datos={value => { }} Array={this.props.Result.Original} Bloqueado /> : null
+                                        }
+                                    </Col>
+                                </ScrollView>
                             </Row>
                             <Row size={1}>
                                 <Text style={[Style.Text]}></Text>
