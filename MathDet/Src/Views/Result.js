@@ -40,7 +40,7 @@ export default class Result extends React.Component {
                             <Row size={1}>
                                 <Text style={[Style.Text]}></Text>
                             </Row>
-                            <Row size={63}>
+                            <Row size={60}>
                                 <ScrollView>
                                     {
                                         this.props.Result.Metodo ?
@@ -69,14 +69,20 @@ export default class Result extends React.Component {
                                                         </Col>
                                                     </Row>
                                                 )
-                                            }) : null
+                                            }) :
+                                            <Row>
+                                                <Col style={Style.Col}>
+                                                    <Text style={[Style.Text]}>{this.props.Result.Original[0][0] + ' * ' + this.props.Result.Original[1][1] + ' = ' + this.props.Result.Mult1}</Text>
+                                                </Col>
+                                                <Col style={Style.Col}>
+                                                    <Text style={[Style.Text]}>{this.props.Result.Original[0][1] + ' * ' + this.props.Result.Original[1][0] + ' = ' + this.props.Result.Mult2}</Text>
+                                                </Col>
+                                            </Row>
                                     }
                                 </ScrollView>
                             </Row>
-                            <Row size={4}>
-                                <Col style={Style.Col}>
-                                    <Text style={[Style.Text]}>{'Determinante = ' + this.props.Result.Det}</Text>
-                                </Col>
+                            <Row size={9} style={Style.Col}>
+                                <Text style={[Style.Text]}>{'Determinante = ' + this.props.Result.Det}</Text>
                             </Row>
                         </Grid>
                     </Content>
