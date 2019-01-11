@@ -40,50 +40,66 @@ export default class Result extends React.Component {
                             <Row size={1}>
                                 <Text style={[Style.Text]}></Text>
                             </Row>
-                            <Row size={60}>
-                                <ScrollView>
-                                    {
-                                        this.props.Result.Metodo ?
-                                            this.props.Result.Matrices.map((matriz, index) => {
-                                                return (
-                                                    <Row key={index}>
-                                                        <Col style={Style.Col} size={50}>
-                                                            <Row size={99}>
-                                                                <Col style={Style.Col}>
-                                                                    <MatrizView Orden={matriz} Datos={value => { }} Array={matriz} Bloqueado />
+                            {
+                                this.props.Result.Traspuesta ?
+                                    <Row size={70}>
+                                        <Row style={Style.Col}>
+                                            <Text style={[Style.Text]}>Traspuesta</Text>
+                                        </Row>
+                                        <Row style={Style.Col}>
+                                            <ScrollView>
+                                                <MatrizView Orden={this.props.Result.Original} Datos={value => { }} Array={this.props.Result.Traspuesta} Bloqueado />
+                                            </ScrollView>
+                                        </Row>
+                                    </Row> :
+                                    <Row size={60}>
+                                        <ScrollView>
+                                            {
+                                                this.props.Result.Metodo ?
+                                                    this.props.Result.Matrices.map((matriz, index) => {
+                                                        return (
+                                                            <Row key={index}>
+                                                                <Col style={Style.Col} size={50}>
+                                                                    <Row size={99}>
+                                                                        <Col style={Style.Col}>
+                                                                            <MatrizView Orden={matriz} Datos={value => { }} Array={matriz} Bloqueado />
+                                                                        </Col>
+                                                                    </Row>
+                                                                    <Row size={1}>
+                                                                        <Text style={[Style.Text]}></Text>
+                                                                    </Row>
+                                                                </Col>
+                                                                <Col style={Style.Col} size={4}></Col>
+                                                                <Col style={Style.Col} size={6}>
+                                                                    <Text style={[Style.Text]}>*</Text>
+                                                                </Col>
+                                                                <Col style={Style.Col} size={20}>
+                                                                    <Text style={[Style.Text]}>{this.props.Result.Cofactores[index]}</Text>
+                                                                </Col>
+                                                                <Col style={Style.Col} size={20}>
+                                                                    <Text style={[Style.Text]}>{'= ' + this.props.Result.CoResult[index]}</Text>
                                                                 </Col>
                                                             </Row>
-                                                            <Row size={1}>
-                                                                <Text style={[Style.Text]}></Text>
-                                                            </Row>
+                                                        )
+                                                    }) :
+                                                    <Row>
+                                                        <Col style={Style.Col}>
+                                                            <Text style={[Style.Text]}>{this.props.Result.Original[0][0] + ' * ' + this.props.Result.Original[1][1] + ' = ' + this.props.Result.Mult1}</Text>
                                                         </Col>
-                                                        <Col style={Style.Col} size={4}></Col>
-                                                        <Col style={Style.Col} size={6}>
-                                                            <Text style={[Style.Text]}>*</Text>
-                                                        </Col>
-                                                        <Col style={Style.Col} size={20}>
-                                                            <Text style={[Style.Text]}>{this.props.Result.Cofactores[index]}</Text>
-                                                        </Col>
-                                                        <Col style={Style.Col} size={20}>
-                                                            <Text style={[Style.Text]}>{'= ' + this.props.Result.CoResult[index]}</Text>
+                                                        <Col style={Style.Col}>
+                                                            <Text style={[Style.Text]}>{this.props.Result.Original[0][1] + ' * ' + this.props.Result.Original[1][0] + ' = ' + this.props.Result.Mult2}</Text>
                                                         </Col>
                                                     </Row>
-                                                )
-                                            }) :
-                                            <Row>
-                                                <Col style={Style.Col}>
-                                                    <Text style={[Style.Text]}>{this.props.Result.Original[0][0] + ' * ' + this.props.Result.Original[1][1] + ' = ' + this.props.Result.Mult1}</Text>
-                                                </Col>
-                                                <Col style={Style.Col}>
-                                                    <Text style={[Style.Text]}>{this.props.Result.Original[0][1] + ' * ' + this.props.Result.Original[1][0] + ' = ' + this.props.Result.Mult2}</Text>
-                                                </Col>
-                                            </Row>
-                                    }
-                                </ScrollView>
-                            </Row>
-                            <Row size={9} style={Style.Col}>
-                                <Text style={[Style.Text]}>{'Determinante = ' + this.props.Result.Det}</Text>
-                            </Row>
+                                            }
+                                        </ScrollView>
+                                    </Row>
+                            }
+                            {
+                                this.props.Result.Traspuesta ? null :
+                                    <Row size={9} style={Style.Col}>
+                                        <Text style={[Style.Text]}>{'Determinante = ' + this.props.Result.Det}</Text>
+                                    </Row>
+                            }
                         </Grid>
                     </Content>
                 </Container>

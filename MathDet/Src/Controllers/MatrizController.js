@@ -16,7 +16,7 @@ export function Traspuesta(Valor, Matriz) {
     console.log(Traspuesta);
     return {
         Traspuesta: Traspuesta,
-        Matriz: Matriz
+        Original: Matriz
     }
 }
 
