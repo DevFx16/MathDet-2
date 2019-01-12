@@ -17,7 +17,7 @@ export default class ResultOperaciones extends React.Component {
 
     render() {
         return (
-            <Modal isOpen={this.props.Abrir} position='center' style={ModalStyle.Result} ref='Modal' backdropPressToClose={false} swipeToClose={false}>
+            <Modal isOpen={this.props.Abrir} position='center' style={ModalStyle.ResultOp} ref='Modal' backdropPressToClose={false} swipeToClose={false}>
                 <Container>
                     <Header>
                         <Right>
@@ -29,19 +29,17 @@ export default class ResultOperaciones extends React.Component {
                     <Content padder contentContainerStyle={Style.Grid}>
                         <Grid>
                             <Row>
-                                <Col style={Style.Col} size={49}>
+                                <Col style={Style.Col} size={48}>
                                     <ScrollView>
                                         <MatrizView Orden={this.props.Result.Matriz1} Datos={value => { }} Array={this.props.Result.Matriz1} Bloqueado />
                                     </ScrollView>
                                 </Col>
-                                <Col size={2} style={Style.Col}>
-                                    <Text style={[Style.Text]}>{this.props.Result.Signo}</Text>
-                                </Col>
-                                <Col style={Style.Col} size={49}>
+                                <Col size={4}/>
+                                <Col style={Style.Col} size={48}>
                                     {
                                         this.props.Result.Escalar ?
                                             <Item last>
-                                                <Input style={ModalStyle.Text} value={this.props.Result.Escalar} disabled />
+                                                <Input style={ModalStyle.Text} value={this.props.Result.Escalar+''} disabled />
                                             </Item> :
                                             <ScrollView>
                                                 <MatrizView Orden={this.props.Result.Matriz2} Datos={value => { }} Array={this.props.Result.Matriz2} Bloqueado />
@@ -51,7 +49,7 @@ export default class ResultOperaciones extends React.Component {
                             </Row>
                             <Row>
                                 <Row style={Style.Col}>
-                                    <Text style={[Style.Text]}>Resultado</Text>
+                                    <Text style={[Style.Text]}>{this.props.Result.Signo+' Resultado: '}</Text>
                                 </Row>
                                 <Row style={Style.Col}>
                                     <ScrollView>

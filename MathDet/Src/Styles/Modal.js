@@ -13,6 +13,10 @@ export default StyleSheet.create({
         width: '95%',
         height: Dimensions.get('window').height - 5,
     },
+    ResultOp: {
+        width: '95%',
+        height: '75%',
+    },
     Text: {
         borderWidth: 1,
         borderColor: 'violet',

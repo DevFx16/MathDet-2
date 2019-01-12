@@ -52,7 +52,7 @@ export default class MatrizView extends React.Component {
                                             return (
                                                 <Col key={it} style={Menu.Col}>
                                                     <Item last>
-                                                        <Input style={Style.Text} keyboardType='decimal-pad' keyboardAppearance='dark' value={this.state.Vars[i][it]} onChangeText={value => {
+                                                        <Input style={Style.Text} keyboardType='decimal-pad' keyboardAppearance='dark' value={this.state.Vars[i][it]+''} onChangeText={value => {
                                                             var Vars = this.state.Vars;
                                                             Vars[i][it] = value + '';
                                                             this.setState({ Vars: Vars });

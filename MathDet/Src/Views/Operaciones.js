@@ -7,13 +7,14 @@ import Modal from 'react-native-modalbox';
 import Style from '../Styles/MenuStyle';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 import MatrizView from './MatrizView';
+import Result from './ResultOperaciones';
 import { AlertasModule } from 'react-native-increibles-alertas';
 
 export default class Operaciones extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { Array: [2, 2], Mostrar: false, Operacion: 'Suma', Picker: '0', Escalar: '0' }
+        this.state = { Array: [2, 2], Mostrar: false, Operacion: 'Suma', Picker: '0', Escalar: '0', Result: {}, Abrir: false }
         this.Mat1 = () => { return [] }
         this.Mat2 = () => { return [] }
         this.Vars = { Mat1: [], Mat2: [] }
@@ -23,10 +24,10 @@ export default class Operaciones extends React.Component {
     Funcion() {
         this.Vars = { Mat1: this.Mat1(), Mat2: this.Mat2() }
         if (!this.Validar(this.Vars)) {
-            if (this.state.Operacion === 'Suma') this.props.Funcion.Suma(this.Vars.Mat1, this.Vars.Mat2, true);
-            else if (this.state.Operacion === 'Resta') this.props.Funcion.Suma(this.Vars.Mat1, this.Vars.Mat2, false);
-            else if (this.state.Operacion === 'Escalar') this.props.Funcion.Escalar(this.state.Escalar, this.Vars.Mat1);
-            else this.props.Funcion.Multiplicacion(this.Vars.Mat1, this.Vars.Mat2);
+            if (this.state.Operacion === 'Suma') this.setState({Result: this.props.Funcion.Suma(this.Vars.Mat1, this.Vars.Mat2, true), Abrir: true});
+            else if (this.state.Operacion === 'Resta') this.setState({Result: this.props.Funcion.Suma(this.Vars.Mat1, this.Vars.Mat2, false), Abrir: true});
+            else if (this.state.Operacion === 'Escalar') this.setState({Result: this.props.Funcion.Escalar(this.state.Escalar, this.Vars.Mat1), Abrir: true});
+            else this.setState({Result: this.props.Funcion.Multiplicacion(this.Vars.Mat1, this.Vars.Mat2), Abrir: true});
         }
     }
 
@@ -57,7 +58,10 @@ export default class Operaciones extends React.Component {
     }
 
     render() {
-        return (
+       if(this.state.Abrir){
+		 return (<Result Abrir={this.state.Abrir} Result={this.state.Result} Cerrar={() => this.setState({ Abrir: false })} />);
+	} else {
+ return (
             <Modal isOpen={this.props.Abrir} position='center' style={ModalStyle.Modal} ref='Modal' backdropPressToClose={false} swipeToClose={false}>
                 <AlertasModule Tipo='error' Mensaje='Debe proporcionar todos los datos' Mostrar={this.state.Mostrar} TextoBotonConfirmado='Ok' onBotonConfirmado={() => { this.setState({ Mostrar: false }) }} Titulo='Error' />
                 <Container>
@@ -118,6 +122,7 @@ export default class Operaciones extends React.Component {
                 </Container>
             </Modal>
         );
+	}
     }
 
 }
