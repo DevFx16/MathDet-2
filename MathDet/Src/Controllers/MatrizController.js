@@ -32,7 +32,8 @@ export function Escalar(Escalar, Matriz) {
     console.log(Result);
     return {
         Escalar: Escalar,
-        Matriz: Matriz,
+        Signo: '*',
+        Matriz1: Matriz,
         Result: Result
     }
 }
@@ -51,6 +52,7 @@ export function Suma(Matriz1, Matriz2, Suma) {
     return {
         Matriz1: Matriz1,
         Matriz2: Matriz2,
+        Signo: Suma ? '+' : '-',
         Result: Result
     }
 }
@@ -70,8 +72,9 @@ export function Multiplicacion(Matriz1, Matriz2) {
     });
     console.log(Result);
     return {
-        Mat1: Matriz1,
-        Mat2: Matriz2,
+        Matriz1: Matriz1,
+        Matriz2: Matriz2,
+        Signo: '*',
         Result: Result
     }
 }
