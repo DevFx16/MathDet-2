@@ -23,8 +23,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.DevelopGadget.MathDet"
     },
-    "description": ""
+    "android": {
+      "package": "com.DevelopGadget.MathDet"
+    }
   }
 }
