@@ -52,8 +52,8 @@ export default class ModalBox extends React.Component {
                     <Container>
                         <Header>
                             <Right>
-                                <Button block transparent icon>
-                                    <Icon name='squared-cross' type='Entypo' fontSize={40} onPress={() => this.props.Cerrar()} />
+                                <Button block transparent onPress={() => this.props.Cerrar()}>
+                                    <Icon name='close' type='FontAwesome' />
                                 </Button>
                             </Right>
                         </Header>
@@ -78,7 +78,7 @@ export default class ModalBox extends React.Component {
                                 <Row size={15}>
                                     <Col style={Style.Col}>
                                         <Button full icon iconRight onPress={this.Funcion.bind(this)}>
-                                            <Icon name='send' type='FontAwesome' fontSize={40} />
+                                            <Icon name='send' type='FontAwesome' />
                                         </Button>
                                     </Col>
                                 </Row>
