@@ -19,7 +19,8 @@ export default class Publicidad extends React.Component {
             <AdMobBanner
                 style={{ position: 'absolute', bottom: 0 }}
                 bannerSize='fullBanner'
-                adUnitID='ca-app-pub-2081995568317845/2557832079' />
+                adUnitID='ca-app-pub-2081995568317845/2557832079' 
+				onDidFailToReceiveAdWithError={err => console.log(err)}/>
         );
     }
 }
