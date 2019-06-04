@@ -68,7 +68,7 @@ export default class Operaciones extends React.Component {
                     <Header>
                         <Right>
                             <Button block transparent icon>
-                                <Icon name='close' type='Entypo' fontSize={40} onPress={() => this.props.Cerrar()} />
+                                <Icon name='close' type='FontAwesome' fontSize={40} onPress={() => this.props.Cerrar()} />
                             </Button>
                         </Right>
                     </Header>

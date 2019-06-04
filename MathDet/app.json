@@ -29,7 +29,8 @@
       "bundleIdentifier": "com.DevelopGadget.MathDet"
     },
     "android": {
-      "package": "com.DevelopGadget.MathDet"
+      "package": "com.DevelopGadget.MathDet",
+      "permissions": []
     },
     "description": ""
   }
