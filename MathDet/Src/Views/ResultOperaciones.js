@@ -22,7 +22,7 @@ export default class ResultOperaciones extends React.Component {
                     <Header>
                         <Right>
                             <Button block transparent icon>
-                                <Icon name='squared-cross' type='Entypo' fontSize={40} onPress={() => this.props.Cerrar()} />
+                                <Icon name='close' type='Entypo' fontSize={40} onPress={() => this.props.Cerrar()} />
                             </Button>
                         </Right>
                     </Header>
